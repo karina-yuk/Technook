@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS technook_db;
+CREATE DATABASE technook_db;
