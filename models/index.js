@@ -1,13 +1,12 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comments = require('./Comments');
-const { post } = require('../controllers');
 
 User.hasMany(Post, {
     foreignKey: 'user_id',
 });
 
-post.belongsTo(User, {
+Post.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
