@@ -1,0 +1,25 @@
+{{#if posts.length}}
+<!-- Display section when there are posts -->
+<section>
+  <h2> Your Posts </h2>
+  <!-- Ordered list to contain individual posts -->
+  <ol class="post-list">
+    {{#each posts as |post|}}
+    <!-- List item for each post -->
+    <li>
+      {{!-- Render post information using a custom helper or partial --}}
+      {{> dashboardPostInfo post}}
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{else}}
+<!-- Display section when there are no posts -->
+<section>
+  <h3> There aren't any Posts </h3>
+</section>
+{{/if}}
+
+<!-- Button to navigate to the page for creating a new post -->
+<button type="submit"><a href="/dashboard/new"> Create New Post </a></button>
+<script src="/js/dashboard.js"></script>
