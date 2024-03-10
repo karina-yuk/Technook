@@ -1,44 +1,40 @@
 const router = require("express").Router();
-const { User, Post, Comments } = require("../../models");
+const { Comments } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// Create a new comment on a post
 router.post("/", withAuth, async (req, res) => {
-    try {
-        const newComment = await Comments.create({
-            comment_text: req.body.comment_text,
-            user_id: req.session.user_id,
-            post_id: req.body.post_id,
-            date_created: new Date(),
-        });
-        res.status(200).json(newComment);
-    } catch (err) {
-        res.status(400).json(err);
-    }
+  try {
+    const newComment = await Comments.create({
+      comment_text: req.body.comment_text,
+      user_id: req.session.user_id,
+      post_id: req.body.post_id,
+    });
+    res.status(201).json(newComment);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.get("/", async (req, res) => {
-    try {
-        const commentData = await Comments.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ["username"],
-                },
-                {
-                    model: Post,
-                    attributes: ["id", "title", "content", "date_created"],
-                },
-            ],
-        });
-        const comments = commentData.map((comment) => comment.get({ plain: true }));
-        res.render("homepage", {
-            comments,
-            logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+// Delete a comment on a post by ID
+router.delete("/:id", withAuth, async (req, res) => {
+  const commentId = parseInt(req.params.id);
+
+  try {
+    const deletedComment = await Comments.findByPk(commentId);
+
+    if (!deletedComment) {
+      res.status(404).json({ error: "Comment not found" });
+      return;
     }
+
+    await deletedComment.destroy();
+
+    res.status(200).json({ message: "Comment deleted successfully!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 module.exports = router;
