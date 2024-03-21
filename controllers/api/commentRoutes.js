@@ -1,28 +1,29 @@
 const router = require("express").Router();
-const { Comments } = require("../../models");
+const { Comment } = require("../../models"); // Adjust the path to your Comment model
 const withAuth = require("../../utils/auth");
 
-// Create a new comment on a post
+// Create a comment on a post
 router.post("/", withAuth, async (req, res) => {
   try {
-    const newComment = await Comments.create({
+    const createdComment = await Comment.create({
       comment_text: req.body.comment_text,
       user_id: req.session.user_id,
       post_id: req.body.post_id,
-      date_created: new Date(),
     });
-    res.status(201).json(newComment);
+
+    res.status(201).json(createdComment);
   } catch (err) {
-    res.status(500).json(err);
+    console.error(err);
+    res.status(400).json({ error: "Unable to create comment" });
   }
 });
 
-// Delete a comment on a post by ID
+// Delete a comment on a post
 router.delete("/:id", withAuth, async (req, res) => {
   const commentId = parseInt(req.params.id);
 
   try {
-    const deletedComment = await Comments.findByPk(commentId);
+    const deletedComment = await Comment.findByPk(commentId);
 
     if (!deletedComment) {
       res.status(404).json({ error: "Comment not found" });
