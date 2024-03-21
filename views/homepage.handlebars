@@ -1,13 +1,13 @@
 {{#if posts.length}}
-  <h1 class="text-center text-light">Latest Blog Posts</h1>
+  <h1 class="text-center m-5 text-light">Latest Blog Posts</h1>
   <div class="row">
     {{#each posts}}
       <div class="col-md-4 mb-4">
         <a href="/post/{{id}}" class="card-link text-decoration-none">
           <div class="card custom-card">
             <div class="card-body custom-card-body">
-              <h5 class="card-title text-primary">{{title}}</h5>
-              <p class="card-text text-muted-custom">Created on:
+              <h5 class="card-title text-center text-primary">{{title}}</h5>
+              <p class="card-text text-center text-muted-custom">Created on:
                 {{formatDate createdAt}}</p>
             </div>
           </div>

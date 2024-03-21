@@ -30,8 +30,14 @@ const postData = [
   {
     title: "The Future of Work: Remote Collaboration Tools and Trends",
     content:
-    "The future of work is remote, collaborative, and powered by innovative tools and technologies. This post explores the rise of remote collaboration tools, virtual workspaces, and digital communication platforms reshaping the modern workplace.",
+      "The future of work is remote, collaborative, and powered by innovative tools and technologies. This post explores the rise of remote collaboration tools, virtual workspaces, and digital communication platforms reshaping the modern workplace.",
     user_id: 4,
+  },
+  {
+    title: "CSS Grid Layout: A New Layout Module",
+    content:
+      "CSS Grid Layout is a powerful layout module that offers a grid-based layout system, with rows and columns, making it easier to design web pages. This post explores the fundamentals of CSS Grid Layout, including the syntax, browser support, and how to use it to create responsive layouts.",
+    user_id: 2,
   },
 ];
 
