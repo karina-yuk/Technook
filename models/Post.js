@@ -1,5 +1,9 @@
+// Importing necessary parts (Model, DataTypes) from the 'sequelize' library
 const { Model, DataTypes } = require("sequelize");
+// Importing the database connection from 'connection.js'
 const sequelize = require("../config/connection");
+
+// Creating a Post class that extends the sequelize Model class
 class Post extends Model {}
 
 Post.init(
@@ -18,11 +22,6 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -33,11 +32,12 @@ Post.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "post",
   }
 );
 
+// Exporting the Post model for use in other parts of the application
 module.exports = Post;
