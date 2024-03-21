@@ -3,7 +3,7 @@
     <div class="col-md-10 offset-md-1">
 
       <!-- Displaying the post title, contents, post creator’s username, and date created-->
-      <h1 class="text-light">{{title}}</h1>
+      <h1 class="text-dark">{{title}}</h1>
       <div class="card post-card">
         <p class="card-text">{{{content}}}</p>
         <p class="card-text text-muted-custom">Posted by
@@ -16,7 +16,7 @@
       {{#if logged_in}}
         <form id="comment-form" class="mt-4">
           <div class="mb-3">
-            <label for="comment" class="form-label text-light">Leave a Comment:</label>
+            <label for="comment" class="form-label text-dark">Leave a Comment:</label>
             <textarea
               class="form-control bg-light"
               id="comment"
@@ -30,14 +30,14 @@
       {{else}}
 
         <!-- Displayed when the user is not logged in -->
-        <p class="text-light mt-4">Please
+        <p class="text-dark mt-4">Please
           <a href="/login" class="text-primary">log in</a>
           to leave a comment.</p>
       {{/if}}
 
       <!-- Displaying the comments, the comment creator’s username, and the date created -->
       {{#if comments}}
-        <h2 class="mt-4 text-light">Comments</h2>
+        <h2 class="mt-4 text-dark">Comments</h2>
         <ul class="list-unstyled" id="comments-list">
           {{#each comments}}
             <li class="card comment-card mt-3">
