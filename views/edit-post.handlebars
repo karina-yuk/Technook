@@ -1,0 +1,38 @@
+<div class="container mt-4 col-md-10">
+  <h1 class="text-light">Edit Post</h1>
+
+  <!-- Form for editing a post -->
+  <form id="edit-post-form">
+
+    <!-- Title input field -->
+    <div class="mb-3">
+      <label for="title" class="form-label text-light">Title:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        value="{{post.title}}"
+        required
+      />
+    </div>
+
+    <!-- Content textarea -->
+    <div class="mb-3">
+      <label for="content" class="form-label text-light">Content:</label>
+      <textarea
+        class="form-control"
+        id="content"
+        name="content"
+        rows="6"
+        required
+      >{{post.content}}</textarea>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary">Update Post</button>
+
+  </form>
+</div>
+
+<script src="/js/edit-post.js"></script>
