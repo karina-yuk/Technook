@@ -1,25 +1,37 @@
-{{#if posts.length}}
-<!-- Display section when there are posts -->
-<section>
-  <h2> Your Posts </h2>
-  <!-- Ordered list to contain individual posts -->
-  <ol class="post-list">
-    {{#each posts as |post|}}
-    <!-- List item for each post -->
-    <li>
-      {{!-- Render post information using a custom helper or partial --}}
-      {{> dashboardPostInfo post}}
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{else}}
-<!-- Display section when there are no posts -->
-<section>
-  <h3> There aren't any Posts </h3>
-</section>
-{{/if}}
+<div class="container mt-4 col-md-10">
+  <div class="row align-items-center">
+    <div class="col-sm-8">
+      <h1 class="text-light">Dashboard</h1>
+    </div>
 
-<!-- Button to navigate to the page for creating a new post -->
-<button type="submit"><a href="/dashboard/new"> Create New Post </a></button>
-<script src="/js/dashboard.js"></script>
+    <!-- Add new post button -->
+    <div class="col-sm-4 d-flex justify-content-center">
+      <a href="/dashboard/new-post" class="btn btn-success mb-4 custom-btn">Add
+        New Post</a>
+    </div>
+  </div>
+
+  <!-- Posts -->
+  {{#each posts}}
+    <div class="card mb-3 dashboard-card">
+      <div class="card-body">
+        <h2 class="card-title"><a
+            href="/post/{{id}}"
+            class="text-decoration-none"
+          >{{title}}</a></h2>
+        <p class="card-text">{{{content}}}</p>
+
+        <!-- Edit post button -->
+        <a href="/dashboard/edit/{{id}}" class="btn btn-primary me-2">Edit</a>
+
+        <!-- Delete post button -->
+        <button
+          type="button"
+          class="btn btn-danger delete-post-button"
+          data-post-id="{{id}}"
+        >Delete</button>
+      </div>
+    </div>
+  {{/each}}
+</div>
+<script src="/js/delete-post.js"></script>
