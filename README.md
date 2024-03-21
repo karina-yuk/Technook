@@ -34,6 +34,12 @@ Sample image of the application shown :
 
 ## Reference
 
+- [Node.js](https://nodejs.org/en/)
+- [Express.js](https://expressjs.com/)
+- [Sequelize](https://sequelize.org/)
+- [Handlebars.js](https://handlebarsjs.com/)
+- [MySQL](https://www.mysql.com/)
+- [Bootstrap](https://getbootstrap.com/)
 ## License
 
 MIT license was used for this application.
