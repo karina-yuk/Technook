@@ -26,13 +26,13 @@ const commentData = [
     post_id: 4,
   },
   {
-    comment_text:
-      "This is a great tutorial for learning CSS Grid Layout. I will definitely be using it in my future projects.",
+    comment_text: "I love this tutorial. Thanks for sharing!",
     user_id: 2,
     post_id: 5,
   },
   {
-    comment_text: "I love this tutorial. Thanks for sharing!",
+    comment_text:
+      "This is a great tutorial for learning CSS Grid Layout. I will definitely be using it in my future projects.",
     user_id: 1,
     post_id: 6,
   },
