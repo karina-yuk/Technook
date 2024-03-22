@@ -16,7 +16,7 @@ Technook CMS is a content management system developed for developers seeking to 
 
 ## Installation
 
-No installation required. To access the application, simply visit the following link:
+No installation required. To access the application, simply visit the following link: https://enigmatic-chamber-32790-18fab8422eec.herokuapp.com
 
 ## Application Sample
 
